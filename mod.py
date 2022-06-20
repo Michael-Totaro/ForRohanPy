@@ -1,4 +1,4 @@
-""" This file is the equivalent to the Rohan.java class in the ForRohan project. """
+""" This entire file is the equivalent to the Rohan.java class in the ForRohan project. """
 import ex
 
 #If the school is not some version of the University of South Carolina a RohanException is thrown
@@ -6,17 +6,17 @@ import ex
 def school_error_checking(schl):
     school = schl.lower()
     if (school != "usc" and school != "uofsc" and school != "the university of south carolina"
-       and school != "university of south carolina" and school != "south carolina"):
+        and school != "university of south carolina" and school != "south carolina"):
 
        message = "Rohan doesn't attend \"" + schl + "\"!"
        raise ex.RohanException(message)
 
-    if school == None:
-        raise AttributeError("School cannot equal None.");
+    if school is None:
+        raise AttributeError("School cannot equal None.")
 
 #If the mascot equals None an AttributeError is thrown
 def mascot_error_checking(mascot):
-    if mascot == None:
+    if mascot is None:
         raise AttributeError("Mascot cannot equal None")
 
 #If Rohans favorite sport is not golf or football a RohanException is thrown.
@@ -41,29 +41,29 @@ def calc_age(date):
 
     if dates[1] > 31 or dates[1] <= 0:
         raise Exception("Day in date is wrong ")
-        
+
     if dates[2] > 2022 or dates[2] <= 2002:
         raise Exception("Year in date is wrong. Rohan wasn't alive!")
 
     months = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     rohansBirthDay = [4, 9, 2002]
 
-    days = 0;
+    days = 0
 
     for i in range(rohansBirthDay[0] + 1, dates[0]):
         days += months[i]
 
     days += dates[1] + (months[rohansBirthDay[0]] - rohansBirthDay[1])
 
-    percent = days / 365.0;
-    almostFinalAge = (dates[2] - rohansBirthDay[2]) + percent;
+    percent = days / 365.0
+    almostFinalAge = (dates[2] - rohansBirthDay[2]) + percent
 
     return str("{:.2f}".format(almostFinalAge))
 
 #Throws exception if a slash character is not in the parameter
 def date_error_checking(date):
     if "/" not in date:
-        raise Exception("Date not formatted properly.");
+        raise Exception("Date not formatted properly.")
 
 """Error checks parameters and constructs a Rohan object"""
 class Rohan:
